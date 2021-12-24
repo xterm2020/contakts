@@ -92,69 +92,7 @@ function App() {
         <input className="search" placeholder="Search" onChange={(e) => { handleSearch(e.target.value) }} />
       </div>
       <div className="container">
-        {search ? <Contakt>
-          {string === 'clicked' ? <Row primary>
-            {search_users[0].map(result => {
-              return (
-                <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-              )
 
-            })}
-          </Row> : <Row>
-              {search_users[0].map(result => {
-                return (
-                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-                )
-
-              })}
-            </Row>}
-          {string === 'clicked' ? <Row primary>
-            {search_users[1].map(result => {
-              return (
-                <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-              )
-
-            })}
-          </Row> : <Row>
-              {search_users[1].map(result => {
-                return (
-                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-                )
-
-              })}
-            </Row>}
-        </Contakt> : <Contakt>
-            {string === 'clicked' ? <Row primary>
-              {currentUser[0].map(result => {
-                return (
-                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-                )
-
-              })}
-            </Row> : <Row>
-                {currentUser[0].map(result => {
-                  return (
-                    <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-                  )
-
-                })}
-              </Row>}
-            {string === 'clicked' ? <Row primary>
-              {currentUser[1].map(result => {
-                return (
-                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-                )
-
-              })}
-            </Row> : <Row>
-                {currentUser[1].map(result => {
-                  return (
-                    <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
-                  )
-
-                })}
-              </Row>}
-          </Contakt>}
         {string === 'clicked' ? <Listofposts primary >
           <ul>
             {posts.filter(post => post.userId === userId).slice(0, 5).map((filteredPost, index) => {
