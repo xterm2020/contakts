@@ -18,7 +18,7 @@ function App() {
 
 
   let modified_users = [[], []]
-  let search_users = []
+  let search_users = [[], []]
   let filter = search === '' ? users : users.map(user => {
     return user.name.toLowerCase().includes(search)
   })
@@ -31,8 +31,8 @@ function App() {
   filter.map((f, i) => {
     if (f === true) {
       console.log(users[i])
-      return search_users.push(users[i])
-
+      let col = i % 2
+      return search_users[col].push(f)
     }
   })
   console.log(search_users)
@@ -94,14 +94,29 @@ function App() {
       <div className="container">
         {search ? <Contakt>
           {string === 'clicked' ? <Row primary>
-            {search_users.map(result => {
+            {search_users[0].map(result => {
               return (
                 <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
               )
 
             })}
           </Row> : <Row>
-              {search_users.map(result => {
+              {search_users[0].map(result => {
+                return (
+                  <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
+                )
+
+              })}
+            </Row>}
+          {string === 'clicked' ? <Row primary>
+            {search_users[1].map(result => {
+              return (
+                <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
+              )
+
+            })}
+          </Row> : <Row>
+              {search_users[1].map(result => {
                 return (
                   <Cart name={result.name} email={result.email} phone={result.phone} id={result.id} getUserId={handleGetInfo} />
                 )
