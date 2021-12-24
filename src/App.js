@@ -92,7 +92,6 @@ function App() {
         <input className="search" placeholder="Search" onChange={(e) => { handleSearch(e.target.value) }} />
       </div>
       <div className="container">
-
         {string === 'clicked' ? <Listofposts primary >
           <ul>
             {posts.filter(post => post.userId === userId).slice(0, 5).map((filteredPost, index) => {
